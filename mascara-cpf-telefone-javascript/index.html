@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulario</title>
+	<script type="text/javascript">
+		function formataCpf(evt){
+	vr = (navigator.appName == 'Netscape')?evt.target.value:evt.srcElement.value;
+	if(vr.length == 3) vr = vr+".";
+	if(vr.length == 7) vr = vr+".";
+	if(vr.length == 11) vr = vr+"-";
+  return vr;
+}
+
+function formataFone(evt){
+	vr = (navigator.appName == 'Netscape')?evt.target.value:evt.srcElement.value;
+	if(vr.length == 0) vr = vr+"(";
+	if(vr.length == 3) vr = vr+")";
+	if(vr.length == 9) vr = vr+"-";
+  return vr;
+}
+	</script>
+</head>
+<body>
+<form>
+	<p>CPF:<input type="text" name="cpf" maxlength="14" required="required" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}"placeholder="000.000.000-00" onkeypress="this.value = formataCpf(event)"></p>
+	<p>Telefone:<input type="text" name="fone" pattern="\([0-9]{2}\)[0-9]{5}-[0-9]{4}" onkeypress="this.value = formataFone(event)" maxlength="14"></p>
+	<input type="submit" name="bt" value="Gravar">
+</form>
+</body>
+</html>
