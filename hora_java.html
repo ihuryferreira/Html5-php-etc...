@@ -1,0 +1,39 @@
+<html>
+ <head>
+ <script type="text/javascript">
+ function startTime() {
+     var today=new Date();
+     var h=today.getHours();
+     var m=today.getMinutes();
+     var s=today.getSeconds();
+     // add a zero in front of numbers<10
+     m=checkTime(m);
+     s=checkTime(s);
+     document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+     t=setTimeout('startTime()',500);
+     //Aqui ele pega o segundo que quero trabalhar.
+     var x=document.getElementById('seg');
+     // Aqui ele pega o endereço do site que quero abrir.
+     var site=document.getElementById('site');
+     //Aqui é a estrutura condivional que verifica se os segundos estão iguais aos do form.
+     if (x.value == s){window.location.href="http://www."+site.value;}
+ }
+
+ function checkTime(i){
+ if (i<10) {
+     i="0" + i;
+ }
+     return i;
+ }
+ </script>
+ </head>
+
+ <body onload="startTime()">
+ <div id="txt"></div>
+ <!-- Essa parte logo abaixo serve para inserir os valores tanto de segundos quanto de site a abrir-->
+ <form>
+ Segundo:<input type="text" name="seg" id="seg" maxlength="2" size="1"><br>
+ Site: www.<input type="text" name="site" id="site">
+</form>
+ </body>
+ </html>
