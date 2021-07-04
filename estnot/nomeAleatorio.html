@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Coisa de Maluco</title>
+</head>
+<body>
+	<form>
+    <p>O nome deve ter quantos catacteres? <input type="text" name="qtdd"></p>
+	<p><input type="button" name="gerar" value="Gerar" onclick="
+         consoante=new Array('B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z');
+    	 vogal=new Array('A','E','I','O','U');
+		 aux = 0;
+		 cont = 1;
+		 nome = '';
+		while(cont < qtdd.value){    
+		if(aux==0){
+			       var letra = Math.floor(Math.random() * 21);
+			       nome+=(consoante[letra]);
+                   cont++;
+                   aux=1;
+                   		}
+		if(aux==1){
+			       var letra = Math.floor(Math.random() * 5);
+			       nome+=(vogal[letra]);
+		           cont++;
+		           aux=0;
+		}
+	}
+	document.write(nome);
+	"></p>
+    </form>
+</body>
+</html>
